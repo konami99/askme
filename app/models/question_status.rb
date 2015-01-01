@@ -1,5 +1,2 @@
-class QuestionStatus
-  def initialize(name)
-    @name = name
-  end
+class QuestionStatus < ActiveRecord::Base
 end
