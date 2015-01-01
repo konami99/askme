@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :question do
-    title "MyString"
-    content "MyText"
+    title { Faker::Lorem.sentence(word_count=50) }
+    content { Faker::Lorem.paragraph }
   end
 end
