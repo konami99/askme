@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @questions = 'hi'
+    @questions = Question.includes(:question_status).where('question_statuses.name = ?', 'Open').references(:question_status).order(created_at: :desc).limit(8)
+    s = 'd'
   end
 end
