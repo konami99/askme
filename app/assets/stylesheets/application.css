@@ -15,4 +15,5 @@
  *= require style
  *= require skins
  *= require responsive
+ *= require_self
  */
