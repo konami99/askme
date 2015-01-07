@@ -5,6 +5,7 @@ FactoryGirl.define do
     firstname { Faker::Name.first_name }
     lastname { Faker::Name.last_name }
     username { Faker::Internet.user_name }
-    email { Faker::Internet.email }
+    email { Faker::Internet.email
+    }
   end
 end

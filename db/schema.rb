@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101124300) do
+ActiveRecord::Schema.define(version: 20150105121122) do
 
   create_table "answer_statuses", force: true do |t|
     t.string   "name"
@@ -33,18 +33,20 @@ ActiveRecord::Schema.define(version: 20150101124300) do
   add_index "answers", ["user_id"], name: "FK_answers_users", using: :btree
 
   create_table "question_statuses", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "question_statuses", ["name"], name: "name", unique: true, using: :btree
+
   create_table "questions", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "title",                          null: false
+    t.text     "content",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "question_status_id"
+    t.integer  "user_id",                        null: false
+    t.integer  "question_status_id", default: 1, null: false
   end
 
   add_index "questions", ["question_status_id"], name: "index_questions_on_question_status_id", using: :btree
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150101124300) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
