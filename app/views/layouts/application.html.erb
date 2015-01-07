@@ -67,7 +67,7 @@
   <div class="panel-pop" id="signup">
     <h2>Register Now<i class="icon-remove"></i></h2>
     <div class="form-style form-style-3">
-      <form>
+      <%= form_tag('signup') do -%>
         <div class="form-inputs clearfix">
           <p>
             <label class="required">Username<span>*</span></label>
@@ -89,7 +89,7 @@
         <p class="form-submit">
           <input type="submit" value="Signup" class="button color small submit">
         </p>
-      </form>
+      <% end -%>
     </div>
   </div><!-- End signup -->
 
