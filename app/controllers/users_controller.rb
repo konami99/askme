@@ -38,6 +38,7 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:username])
         if user
           session[:user_id] = user.id
+          session[:username] = user.username
         end
         format.html { redirect_to root_path }
       else
