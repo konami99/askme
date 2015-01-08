@@ -24,7 +24,7 @@ RSpec.describe UsersController, :type => :controller do
     context 'with valid attributes' do
       it 'saves the new user in the database' do
         expect{
-          post :create, user: attributes_for(:user)
+          post :create, username: 'test', email: 'test@gmail.com', password: '123', password_confirmation: '123'
         }.to change(User, :count).by(1)
       end
     end
