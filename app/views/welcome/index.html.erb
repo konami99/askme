@@ -608,6 +608,7 @@
       </div><!-- End page-content -->
     </div><!-- End main -->
     <aside class="col-md-3 sidebar">
+      <% unless session[:user_id].nil? %>
       <div class="widget widget_stats">
         <h3 class="widget_title">Stats</h3>
         <div class="ul_list ul_list-icon-ok">
@@ -617,6 +618,7 @@
           </ul>
         </div>
       </div>
+      <% end %>
 
       <div class="widget widget_social">
         <h3 class="widget_title">Find Us</h3>
@@ -659,7 +661,7 @@
           </li>
         </ul>
       </div>
-
+      <% if session[:user_id].nil? %>
       <div class="widget widget_login">
         <h3 class="widget_title">Login</h3>
         <div class="form-style form-style-2">
@@ -688,7 +690,8 @@
           <div class="clearfix"></div>
         </div>
       </div>
-
+      <% end %>
+      <!--
       <div class="widget widget_highest_points">
         <h3 class="widget_title">Highest points</h3>
         <ul>
@@ -715,7 +718,8 @@
           </li>
         </ul>
       </div>
-
+      -->
+      <!--
       <div class="widget widget_tag_cloud">
         <h3 class="widget_title">Tags</h3>
         <a href="#">projects</a>
@@ -727,7 +731,8 @@
         <a href="#">2code</a>
         <a href="#">vbegy</a>
       </div>
-
+      -->
+      <!--
       <div class="widget">
         <h3 class="widget_title">Recent Questions</h3>
         <ul class="related-posts">
@@ -743,7 +748,7 @@
           </li>
         </ul>
       </div>
-
+      -->
     </aside><!-- End sidebar -->
   </div><!-- End row -->
 </section><!-- End container -->
