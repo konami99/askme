@@ -1024,7 +1024,7 @@ jQuery(document).ready(function($) {
 	}).scroll();
 	
 	/* Twitter */
-	
+	/*
 	jQuery(".tweet_1").tweet({
 		join_text: false,
 		username: "envato", // Username
@@ -1042,7 +1042,7 @@ jQuery(document).ready(function($) {
 		days_ago_text: "about %d days ago",
 		view_text: "view tweet on twitter"
 	});
-	
+
 	jQuery(".tweet_2").tweet({
 		join_text: false,
 		username: "envato", // Username
@@ -1060,9 +1060,9 @@ jQuery(document).ready(function($) {
 		days_ago_text: "about %d days ago",
 		view_text: "view tweet on twitter"
 	});
-	
+	*/
 	/* Flickr */
-	
+	/*
 	jQuery(".flickr_1").jflickrfeed({
 		limit: 12,
 		qstrings: {
@@ -1070,5 +1070,5 @@ jQuery(document).ready(function($) {
 		},
 		itemTemplate: '<a href="{{link}}" title="{{title}}" target="_blank"><img src="{{image_m}}" alt="{{title}}"></a>'
 	});
-	
+	*/
 });
