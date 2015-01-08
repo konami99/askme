@@ -24,15 +24,24 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new do |u|
+      u.username = params[:username]
+      u.email = params[:email]
+      u.password = params[:password]
+      u.password_confirmation = params[:password_confirmation]
+    end
+
+
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        user = User.find_by(username: params[:username])
+        if user
+          session[:user_id] = user.id
+        end
+        format.html { redirect_to root_path }
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { redirect_to root_path }
       end
     end
   end
