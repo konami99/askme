@@ -665,7 +665,7 @@
       <div class="widget widget_login">
         <h3 class="widget_title">Login</h3>
         <div class="form-style form-style-2">
-          <form>
+          <%= form_tag('signup') do -%>
             <div class="form-inputs clearfix">
               <p class="login-text">
                 <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
@@ -683,7 +683,7 @@
             <div class="rememberme">
               <label><input type="checkbox" checked="checked"> Remember Me</label>
             </div>
-          </form>
+          <% end -%>
           <ul class="login-links login-links-r">
             <li><a href="#">Register</a></li>
           </ul>
