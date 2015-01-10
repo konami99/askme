@@ -3,16 +3,14 @@ require 'rails_helper'
 RSpec.describe SessionsController, :type => :controller do
 
   describe "GET new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
+    it "returns http success"
   end
 
   describe "GET create" do
     it "stores user_id and username in session" do
-      user = create(:user, username: 'etw154', password: '')
-      expect(response).to have_http_status(:success)
+      user = create(:user, username: 'etw154', password: 'rails4', password_confirmation: 'rails4')
+      post :create, username: user.username, password: user.password
+      expect(assigns(:user)).to eq(user)
     end
   end
 
