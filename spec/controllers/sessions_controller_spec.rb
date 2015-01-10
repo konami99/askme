@@ -11,7 +11,7 @@ RSpec.describe SessionsController, :type => :controller do
 
   describe "GET create" do
     it "stores user_id and username in session" do
-      get :create
+      user = create(:user, username: 'etw154', password: '')
       expect(response).to have_http_status(:success)
     end
   end
