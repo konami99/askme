@@ -10,14 +10,14 @@ RSpec.describe SessionsController, :type => :controller do
   end
 
   describe "GET create" do
-    it "returns http success" do
+    it "stores user_id and username in session" do
       get :create
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET destroy" do
-    it "returns http success" do
+    it "remove user_id from session" do
       user = create(:user)
       session[:user_id] = user.id
       get :destroy
