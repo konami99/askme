@@ -668,11 +668,11 @@
           <%= form_tag('signin') do -%>
             <div class="form-inputs clearfix">
               <p class="login-text">
-                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                <input type="text" name="signin_username" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
                 <i class="icon-user"></i>
               </p>
               <p class="login-password">
-                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                <input type="password" name="signin_password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
                 <i class="icon-lock"></i>
                 <a href="#">Forget</a>
               </p>
