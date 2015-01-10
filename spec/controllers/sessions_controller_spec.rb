@@ -9,8 +9,8 @@ RSpec.describe SessionsController, :type => :controller do
   describe "GET create" do
     it "stores user_id and username in session" do
       user = create(:user, username: 'etw154', password: 'rails4', password_confirmation: 'rails4')
-      post :create, username: user.username, password: user.password
-      expect(assigns(:user)).to eq(user)
+      post :create, signin_username: user.username, signin_password: user.password
+      expect(assigns(:user)).to eq user
     end
   end
 

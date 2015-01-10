@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:signin_username])
     if user and user.authenticate(params[:signin_password])
       session[:user_id] = user.id
-      session[;username] = user.username
+      session[:q4uusername] = user.username
       redirect_to root_path
     else
-
+      redirect_to root_path
     end
   end
 
