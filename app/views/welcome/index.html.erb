@@ -1,6 +1,13 @@
 <section class="container main-content">
   <div class="row">
     <div class="col-md-9">
+      <% if flash[:notice] %>
+          <div class="alert-message success">
+            <i class="icon-flag"></i>
+            <p><span></span><br>
+              <%= flash[:alert] %></p>
+          </div>
+      <% end %>
       <% if flash[:alert] %>
       <div class="alert-message error">
         <i class="icon-flag"></i>
