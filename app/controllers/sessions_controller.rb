@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:q4uusername] = user.username
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to root_path, alert: "Invalid user/password combination"
     end
   end
 
