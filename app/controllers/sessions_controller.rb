@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:signin_username])
     if user and user.authenticate(params[:signin_password])
       session[:user_id] = user.id
-      session[:q4uusername] = user.username
-      redirect_to root_path
+      session[:username] = user.username
+      redirect_to root_path, notice: "Welcome back, #{session[:username]}"
     else
       redirect_to root_path, alert: "Invalid user/password combination"
     end
