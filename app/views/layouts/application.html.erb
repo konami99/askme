@@ -139,7 +139,11 @@
   </div><!-- End header-top -->
   <header id="header" class="index-no-box">
     <section class="container clearfix">
-      <div class="logo"><a href="index.html"><%= image_tag('logo.png') %></a></div>
+      <div class="logo">
+        <%= link_to root_path do %>
+            <%= image_tag('logo.png') %>
+        <% end %>
+      </div>
       <nav class="navigation">
         <ul>
           <li class="current_page_item"><a href="index.html">Home</a>
