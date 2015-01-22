@@ -14,7 +14,7 @@ default: &default
 development:
   <<: *default
   database: askme_development
-  username: root
+  username: askme
   password: fdnq4u3A
 
 # Warning: The database defined as "test" will be erased and
@@ -23,11 +23,11 @@ development:
 test:
   <<: *default
   database: askme_test
-  username: root
+  username: askme
   password: fdnq4u3A
 
 production:
   <<: *default
   database: askme_production
-  username: root
+  username: askme
   password: fdnq4u3A
