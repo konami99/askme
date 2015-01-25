@@ -12,6 +12,11 @@
  *
  * require_tree .
  * require_self
+ *= require 'css/base'
+ *= require 'css/bootstrap.min'
+ *= require 'css/prettyPhoto'
+ *= require 'css/font-awesome/css/font-awesome.min'
+ *= require 'css/fontello/css/fontello'
  *= require style
  *= require skins
  *= require responsive
