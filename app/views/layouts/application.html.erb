@@ -137,7 +137,8 @@
       </div>
     </section><!-- End container -->
   </div><!-- End header-top -->
-  <%= content_for?(:header) ? yield(:header) : '<header id="header" class="index-no-box">' %>
+
+  <header id="header" class=<%= content_for?(:header_class) ? yield(:header_class) : "index-no-box" %>>
     <section class="container clearfix">
       <div class="logo">
         <%= link_to root_path do %>
