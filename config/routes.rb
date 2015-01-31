@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   post 'signin' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+  get 'signin' => 'users#signin', as: 'signin_page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
