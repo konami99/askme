@@ -22,6 +22,20 @@
   <div class="login">
     <div class="row">
       <div class="col-md-6">
+        <% if flash[:notice] %>
+            <div class="alert-message success">
+              <i class="icon-flag"></i>
+              <p><span></span><br>
+                <%= flash[:notice] %></p>
+            </div>
+        <% end %>
+        <% if flash[:alert] %>
+            <div class="alert-message error">
+              <i class="icon-flag"></i>
+              <p><span></span><br>
+                <%= flash[:alert] %></p>
+            </div>
+        <% end %>
         <div class="page-content">
           <h2>Login</h2>
           <div class="form-style form-style-3">
