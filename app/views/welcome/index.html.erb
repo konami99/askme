@@ -27,7 +27,7 @@
             <% @questions.each do |question| %>
                 <article class="question question-type-normal">
                   <h2>
-                    <a href="single_question.html"><%= question.title %></a>
+                    <%= link_to question.title, question %>
                   </h2>
                   <a class="question-report" href="#">Report</a>
                   <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
