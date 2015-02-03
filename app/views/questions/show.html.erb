@@ -258,7 +258,9 @@
           </li>
         </ol><!-- End commentlist -->
       </div><!-- End page-content -->
+      <% if session[:user_id].nil? %>
 
+      <% else %>
       <div id="respond" class="comment-respond page-content clearfix">
         <div class="boxedtitle page-title"><h2>Leave a reply</h2></div>
         <form action="" method="post" id="commentform" class="comment-form">
@@ -287,7 +289,7 @@
           </p>
         </form>
       </div>
-
+      <% end %>
       <div class="post-next-prev clearfix">
         <p class="prev-post">
           <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev question</a>
