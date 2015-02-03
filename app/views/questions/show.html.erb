@@ -23,15 +23,14 @@
     <div class="col-md-9">
       <article class="question single-question question-type-normal">
         <h2>
-          <a href="single_question.html">This Is My first Question</a>
+          <a href="single_question.html"><%= @question.title %></a>
         </h2>
         <a class="question-report" href="#">Report</a>
         <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
         <div class="question-inner">
           <div class="clearfix"></div>
           <div class="question-desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. Donec congue commodo mi, sed commodo velit fringilla ac. Fusce placerat venenatis mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ornare, dolor a aliquet rutrum, dolor turpis condimentum leo, a semper lacus purus in felis. Quisque blandit posuere turpis, eget auctor felis pharetra eu .</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. Donec congue commodo mi, sed commodo velit fringilla ac. Fusce placerat venenatis mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ornare, dolor a aliquet rutrum, dolor turpis condimentum leo, a semper lacus purus in felis. Quisque blandit posuere turpis, eget auctor felis pharetra eu .</p>
+            <p><%= @question.content %></p>
           </div>
           <div class="question-details">
             <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
