@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    i = 1
   end
 
   # GET /questions/new
