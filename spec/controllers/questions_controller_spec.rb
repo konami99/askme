@@ -20,6 +20,12 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, :type => :controller do
   describe 'GET #new' do
+    before(:each) do
+      user = create(:user)
+      session[:user_id] = user.id
+      session[:username] = user.username
+    end
+
     it 'assigns a new Question to @question' do
       get :new
       expect(assigns(:question)).to be_a_new(Question)
