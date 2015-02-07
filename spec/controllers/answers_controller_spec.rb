@@ -20,6 +20,12 @@ require 'rails_helper'
 
 RSpec.describe AnswersController, :type => :controller do
 
+  before(:each) do
+    user = create(:user)
+    session[:user_id] = user.id
+    session[:username] = user.username
+  end
+
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'saves the new answer in the database' do
