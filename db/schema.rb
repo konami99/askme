@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105121122) do
+ActiveRecord::Schema.define(version: 20150208125533) do
+
+  create_table "answer_attributes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "answer_id"
+    t.integer  "like"
+  end
 
   create_table "answer_statuses", force: true do |t|
     t.string   "name"
@@ -61,5 +68,8 @@ ActiveRecord::Schema.define(version: 20150105121122) do
     t.datetime "updated_at"
     t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "email", unique: true, using: :btree
+  add_index "users", ["username"], name: "username", unique: true, using: :btree
 
 end
