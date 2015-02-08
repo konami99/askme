@@ -151,7 +151,7 @@
       <div id="commentlist" class="page-content">
         <div class="boxedtitle page-title"><h2>Answers ( <span class="color"><%= @question.answers.size %></span> )</h2></div>
         <ol class="commentlist clearfix">
-        <% @question.answers.each do |answer| %>
+        <% @question.answers.order('updated_at desc').each do |answer| %>
           <li class="comment">
             <div class="comment-body clearfix">
               <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
@@ -166,7 +166,7 @@
                   </div>
                   <span class="question-vote-result">+1</span>
                   <div class="comment-meta">
-                    <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
+                    <div class="date"><i class="icon-time"></i><%= answer.updated_at.strftime('%A %e, %Y at %H:%M') %></div>
                   </div>
                   <a class="comment-reply" href="#"><i class="icon-reply"></i>Reply</a>
                 </div>
