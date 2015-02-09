@@ -2,6 +2,12 @@
 
 FactoryGirl.define do
   factory :answer do
-    content "MyText"
+    content { Faker::Lorem.paragraph }
+
+    after(:build) do |answer|
+      answer.user = build(:user)
+      aa = create(:answer_attribute, answer: answer)
+      answer.answer_attributes << aa
+    end
   end
 end

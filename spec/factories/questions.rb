@@ -6,8 +6,7 @@ FactoryGirl.define do
     content { Faker::Lorem.paragraph }
 
     after(:build) do |question|
-      u = create(:user)
-      question.user = u
+      question.user = build(:user)
     end
   end
 end
