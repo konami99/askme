@@ -6,8 +6,8 @@ FactoryGirl.define do
 
     after(:build) do |answer|
       answer.user = build(:user)
-      aa = create(:answer_attribute, answer: answer)
-      answer.answer_attributes << aa
+      answer_attribute = create(:answer_attribute, answer: answer)
+      answer.answer_attribute = answer_attribute
     end
   end
 end
