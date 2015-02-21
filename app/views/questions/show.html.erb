@@ -161,10 +161,13 @@
                   <div class="comment-vote">
                     <ul class="question-vote">
                       <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put) do -%>
+                      <li><%= link_to "", "#", class: "question-vote-up", title: "Like" %></li>
+                      <% end -%>
                       <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
                     </ul>
                   </div>
-                  <span class="question-vote-result">+1</span>
+                  <span class="question-vote-result">+<%= answer.answer_attribute.like %></span>
                   <div class="comment-meta">
                     <div class="date"><i class="icon-time"></i><%= answer.updated_at.strftime('%A %e, %Y at %H:%M') %></div>
                   </div>
@@ -348,3 +351,12 @@
     </aside><!-- End sidebar -->
   </div><!-- End row -->
 </section><!-- End container -->
+<script type="text/javascript">
+    $(function(){
+        //alert('haha');
+        $('.question-vote-up').click(function(){
+            //alert('ah');
+            $(this).parent().parent().submit();
+        })
+    });
+</script>

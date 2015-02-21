@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   #get 'sessions/destroy'
 
-  resources :answers
+  resources :answers do
+    resources :answer_attributes
+  end
 
   resources :questions
 
