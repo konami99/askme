@@ -11,10 +11,11 @@
 // about supported directives.
 //
 // require jquery
-// require jquery_ujs
+
 // require turbolinks
 // require_tree .
 //= require jquery.min
+//= require jquery_ujs
 //= require jquery-ui-1.10.3.custom.min
 //= require jquery.easing.1.3.min
 //= require html5
