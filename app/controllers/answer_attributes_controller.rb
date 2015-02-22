@@ -6,7 +6,10 @@ class AnswerAttributesController < ApplicationController
     aa.like += 1
     aa.save!
     respond_to do |format|
-      format.js { @answer_id = params[:answer_id] }
+      format.js {
+        @answer_id = params[:answer_id]
+        @updatedCount = aa.like
+      }
     end
 
   end

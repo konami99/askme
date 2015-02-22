@@ -160,11 +160,15 @@
                   <div class="comment-author"><a href="#"><%= answer.user.username %></a></div>
                   <div class="comment-vote">
                     <ul class="question-vote">
+                      <!--
                       <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                      -->
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true) do -%>
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like" %></li>
                       <% end -%>
+                      <!--
                       <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                        -->
                     </ul>
                   </div>
                   <span id="answer_<%= answer.id %>_vote_count" class="question-vote-result">+<%= answer.answer_attribute.like %></span>
