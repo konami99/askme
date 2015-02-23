@@ -15,7 +15,7 @@ development:
   <<: *default
   database: askme_development
   username: askme
-  password: fdnq4u3A
+  password: K844kH85929m5rS
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,10 +24,10 @@ test:
   <<: *default
   database: askme_test
   username: askme
-  password: fdnq4u3A
+  password: K844kH85929m5rS
 
 production:
   <<: *default
   database: askme_production
   username: askme
-  password: fdnq4u3A
+  password: K844kH85929m5rS
