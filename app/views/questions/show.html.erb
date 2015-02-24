@@ -166,6 +166,9 @@
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true) do -%>
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like" %></li>
                       <% end -%>
+                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true) do -%>
+                          <li><%= link_to "", "#", class: "question-vote-down", title: "Dislike" %></li>
+                      <% end -%>
                       <!--
                       <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
                         -->
@@ -359,6 +362,12 @@
     $(function(){
         //alert('haha');
         $('.question-vote-up').click(function(){
+            //alert('ah');
+            $(this).parent().parent().submit();
+            return false;
+        });
+
+        $('.question-vote-down').click(function(){
             //alert('ah');
             $(this).parent().parent().submit();
             return false;
