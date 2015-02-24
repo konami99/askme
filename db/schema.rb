@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208125533) do
+ActiveRecord::Schema.define(version: 20150224122034) do
 
   create_table "answer_attributes", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150208125533) do
     t.integer  "answer_id"
     t.integer  "like"
   end
+
+  add_index "answer_attributes", ["answer_id"], name: "FK_answer_attributes_answers", using: :btree
 
   create_table "answer_statuses", force: true do |t|
     t.string   "name"
@@ -38,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150208125533) do
   add_index "answers", ["answer_status_id"], name: "index_answers_on_answer_status_id", using: :btree
   add_index "answers", ["question_id"], name: "FK_answers_questions", using: :btree
   add_index "answers", ["user_id"], name: "FK_answers_users", using: :btree
+
+  create_table "liked_answers", force: true do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "liked_answers", ["answer_id"], name: "index_liked_answers_on_answer_id", using: :btree
+  add_index "liked_answers", ["user_id"], name: "index_liked_answers_on_user_id", using: :btree
 
   create_table "question_statuses", force: true do |t|
     t.string   "name",       null: false

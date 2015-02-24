@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :liked_answers
+
   #get 'sessions/new'
 
   #get 'sessions/create'
