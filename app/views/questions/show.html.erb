@@ -163,7 +163,7 @@
                       <!--
                       <li><a href="#" class="question-vote-up" title="Like"></a></li>
                       -->
-                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true) do -%>
+                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true, class: "like_form") do -%>
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like", data: { type: :json } %></li>
                       <% end -%>
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true) do -%>
@@ -371,6 +371,10 @@
             //alert('ah');
             $(this).parent().parent().submit();
             return false;
+        });
+
+        $(".like_form").on("ajax:success", function(event, data){
+            alert('here');
         });
     });
 </script>
