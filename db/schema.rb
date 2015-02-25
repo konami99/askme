@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224122034) do
+ActiveRecord::Schema.define(version: 20150225121947) do
 
   create_table "answer_attributes", force: true do |t|
     t.datetime "created_at"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150224122034) do
   add_index "answers", ["answer_status_id"], name: "index_answers_on_answer_status_id", using: :btree
   add_index "answers", ["question_id"], name: "FK_answers_questions", using: :btree
   add_index "answers", ["user_id"], name: "FK_answers_users", using: :btree
+
+  create_table "disliked_answers", force: true do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "disliked_answers", ["answer_id"], name: "index_disliked_answers_on_answer_id", using: :btree
+  add_index "disliked_answers", ["user_id"], name: "index_disliked_answers_on_user_id", using: :btree
 
   create_table "liked_answers", force: true do |t|
     t.integer  "answer_id"
