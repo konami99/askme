@@ -11,8 +11,16 @@ class AnswerAttributesController < ApplicationController
       LikedAnswer.create(user_id: session[:user_id], answer_id: answer.id)
       respond_to do |format|
         format.js {
+          @result = 1
           @answer_id = params[:answer_id]
           @updatedCount = answer_attribute.like
+        }
+      end
+    else
+      respond_to do |format|
+        format.js {
+          @result = 0
+
         }
       end
     end
