@@ -360,21 +360,23 @@
 </section><!-- End container -->
 <script type="text/javascript">
     $(function(){
-        //alert('haha');
         $('.question-vote-up').click(function(){
-            //alert('ah');
             $(this).parent().parent().submit();
             return false;
         });
 
         $('.question-vote-down').click(function(){
-            //alert('ah');
             $(this).parent().parent().submit();
             return false;
         });
 
         $(".like_form").on("ajax:success", function(event, data){
-            alert('here');
+            if(data.status == 1){
+                $('#answer_' + data.answer_id + '_vote_count').text(data.message);
+            }
+            else if(data.status == 0){
+                alert(data.message);
+            }
         });
     });
 </script>
