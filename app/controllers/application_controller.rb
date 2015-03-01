@@ -7,7 +7,14 @@ class ApplicationController < ActionController::Base
   protected
     def authorize
       unless User.find_by(id: session[:user_id])
-        redirect_to signin_page_path, notice: 'Please log in'
+        respond_to do |format|
+          format.json {
+            render 'authorize.js'
+          }
+          format.html {
+            redirect_to signin_page_path, notice: 'Please log in'
+          }
+        end
       end
     end
 end

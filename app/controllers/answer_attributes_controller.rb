@@ -1,5 +1,5 @@
 class AnswerAttributesController < ApplicationController
-  skip_before_action :authorize
+  # skip_before_action :authorize
 
   def update
     answer = Answer.find(params[:answer_id])
