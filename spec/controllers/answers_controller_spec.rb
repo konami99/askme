@@ -21,17 +21,23 @@ require 'rails_helper'
 RSpec.describe AnswersController, :type => :controller do
 
   before(:each) do
-    user = create(:user)
-    session[:user_id] = user.id
-    session[:username] = user.username
+    @user = create(:user)
+    session[:user_id] = @user.id
+    session[:username] = @user.username
   end
 
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'saves the new answer in the database' do
+        question = create(:question)
         expect{
-          post :create, answer: attributes_for(:answer)
+          post :create, content: '123test', user_id: @user.id, question_id: question.id, answer_status_id: 2, id: question.id
         }.to change(Answer, :count).by(1)
+      end
+
+      it 'update like count' do
+        answer = create(:answer)
+        put :update, id: answer, answer_attributes:answer.answer_attribute
       end
     end
   end
