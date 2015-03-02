@@ -8,12 +8,14 @@ RSpec.describe AnswerAttributesController, :type => :controller do
   end
 
   describe 'PUT #update' do
+    #render_views
     context 'with valid attributes' do
       it 'update like count' do
         request.accept = "application/json"
         answer = create(:answer)
         expect{
           put :update, answer_id: answer, id:answer.answer_attribute.id
+          r = response.body
         }.to change(LikedAnswer, :count).by(1)
       end
     end
