@@ -34,13 +34,6 @@ RSpec.describe AnswersController, :type => :controller do
           post :create, content: '123test', user_id: @user.id, question_id: question.id, answer_status_id: 2, id: question.id
         }.to change(Answer, :count).by(1)
       end
-
-      it 'update like count' do
-        answer = create(:answer)
-        put :update, id: answer, answer_attributes:answer.answer_attribute
-      end
     end
   end
-
-
 end
