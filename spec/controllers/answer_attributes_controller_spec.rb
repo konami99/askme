@@ -15,7 +15,6 @@ RSpec.describe AnswerAttributesController, :type => :controller do
         answer = create(:answer)
         expect{
           put :update, answer_id: answer, id:answer.answer_attribute.id
-          r = response.body
         }.to change(LikedAnswer, :count).by(1)
       end
     end
