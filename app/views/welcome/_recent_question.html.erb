@@ -1,4 +1,4 @@
-<% cache recent_question do %>
+<% cache ['entry', recent_question] do %>
     <article class="question question-type-normal">
       <h2>
         <%= link_to recent_question.title, recent_question %>
