@@ -14,8 +14,8 @@ _question
           <span class="question-answered question-answered-done"><i class="icon-ok"></i><%= question.question_status.name  %></span>
           <span class="question-favorite"><i class="icon-star"></i>5</span>
         </div>
-        <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
-        <span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.size() %> Answer</a></span>
+        <span class="question-date"><i class="icon-time"></i><%= question.created_at.strftime("%d/%m/%Y") %></span>
+        <span class="question-comment"><a href="#"><i class="icon-comment"></i><%= pluralize(question.answers.size(), 'Answer') %></a></span>
         <div class="clearfix"></div>
       </div>
     </article>

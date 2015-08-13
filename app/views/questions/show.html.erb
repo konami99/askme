@@ -33,8 +33,8 @@
             <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
             <span class="question-favorite"><i class="icon-star"></i>5</span>
           </div>
-          <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
-          <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+          <span class="question-date"><i class="icon-time"></i><%= @question.created_at.strftime("%d/%m/%Y") %></span>
+          <span class="question-comment"><a href="#"><i class="icon-comment"></i><%= pluralize(@question.answers.size(), 'Answer') %></a></span>
           <span class="single-question-vote-result">+22</span>
           <ul class="single-question-vote">
             <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
@@ -143,7 +143,9 @@
                 </div>
                 <div class="text"><p><%= answer.content %></p>
                 </div>
+                <% if answer.answer_status_id.eql? 3 %>
                 <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
+                <% end %>
               </div>
             </div>
           </li>
