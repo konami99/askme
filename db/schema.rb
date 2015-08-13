@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225121947) do
+ActiveRecord::Schema.define(version: 20150813133330) do
 
   create_table "answer_attributes", force: true do |t|
     t.datetime "created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150225121947) do
   end
 
   add_index "answers", ["answer_status_id"], name: "index_answers_on_answer_status_id", using: :btree
+  add_index "answers", ["created_at"], name: "created_at", using: :btree
   add_index "answers", ["question_id"], name: "FK_answers_questions", using: :btree
   add_index "answers", ["user_id"], name: "FK_answers_users", using: :btree
 
@@ -76,8 +77,10 @@ ActiveRecord::Schema.define(version: 20150225121947) do
     t.datetime "updated_at"
     t.integer  "user_id",                        null: false
     t.integer  "question_status_id", default: 1, null: false
+    t.integer  "has_best_answer"
   end
 
+  add_index "questions", ["created_at"], name: "created_at", using: :btree
   add_index "questions", ["question_status_id"], name: "index_questions_on_question_status_id", using: :btree
   add_index "questions", ["user_id"], name: "FK_questions_users", using: :btree
 
@@ -89,8 +92,10 @@ ActiveRecord::Schema.define(version: 20150225121947) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.integer  "api_key"
   end
 
+  add_index "users", ["api_key"], name: "api_key", unique: true, using: :btree
   add_index "users", ["email"], name: "email", unique: true, using: :btree
   add_index "users", ["username"], name: "username", unique: true, using: :btree
 

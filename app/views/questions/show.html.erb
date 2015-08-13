@@ -145,6 +145,10 @@
                 </div>
                 <% if answer.answer_status_id.eql? 3 %>
                 <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
+                <% else %>
+                    <% if @question.user_id.eql? session[:user_id] %>
+                    <a href="#" class="button small red-button">Best Answer</a>
+                    <% end %>
                 <% end %>
               </div>
             </div>
