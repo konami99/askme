@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20150813133330) do
     t.datetime "updated_at"
     t.integer  "user_id",                        null: false
     t.integer  "question_status_id", default: 1, null: false
-    t.integer  "has_best_answer"
+    t.integer  "has_best_answer",    default: 0, null: false
   end
 
   add_index "questions", ["created_at"], name: "created_at", using: :btree
