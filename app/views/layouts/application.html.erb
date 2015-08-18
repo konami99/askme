@@ -178,19 +178,6 @@ application
 
         </div>
       <aside class="col-md-3 sidebar">
-        <% unless session[:user_id].nil? %>
-            <div class="widget widget_stats">
-              <h3 class="widget_title">Stats</h3>
-              <div class="ul_list ul_list-icon-ok">
-                <ul>
-                  <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
-                  <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
-                </ul>
-              </div>
-            </div>
-        <% end %>
-
-
         <% if session[:user_id].nil? %>
             <div class="widget widget_login">
               <h3 class="widget_title">Login</h3>
@@ -218,6 +205,16 @@ application
                   <li><a href="#">Register</a></li>
                 </ul>
                 <div class="clearfix"></div>
+              </div>
+            </div>
+        <% else %>
+            <div class="widget widget_stats">
+              <h3 class="widget_title">Stats</h3>
+              <div class="ul_list ul_list-icon-ok">
+                <ul>
+                  <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                  <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                </ul>
               </div>
             </div>
         <% end %>
