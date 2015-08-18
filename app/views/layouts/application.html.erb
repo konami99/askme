@@ -212,8 +212,10 @@ application
               <h3 class="widget_title">Stats</h3>
               <div class="ul_list ul_list-icon-ok">
                 <ul>
+                  <% cache User.find(session[:user_id]) do %>
                   <li><i class="icon-question-sign"></i>Questions ( <span><%= User.find(session[:user_id]).questions.size %></span> )</li>
                   <li><i class="icon-comment"></i>Answers ( <span><%= User.find(session[:user_id]).answers.size %></span> )</li>
+                  <% end %>
                 </ul>
               </div>
             </div>
