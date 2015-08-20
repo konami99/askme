@@ -147,7 +147,9 @@
                 <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
                 <% else %>
                     <% if (@question.user_id.eql? session[:user_id]) && (@question.has_best_answer.eql? 0) %>
-                    <a href="#" class="button small red-button">Best Answer</a>
+                        <%= form_tag("/answers/selectAsBestAnswer/#{answer.id}") do -%>
+                            <input type="submit" value="Select as Best Answer" class="button small color">
+                        <% end -%>
                     <% end %>
                 <% end %>
               </div>
