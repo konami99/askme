@@ -4,10 +4,9 @@ FactoryGirl.define do
   factory :answer do
     content { Faker::Lorem.paragraph }
 
-    after(:build) do |answer|
-      answer.user = build(:user)
-      answer_attribute = create(:answer_attribute, answer: answer)
-      answer.answer_attribute = answer_attribute
-    end
+    #after(:build) do |answer|
+    #  answer.user = build(:user)
+    #  answer.answer_attribute = create(:answer_attribute, answer: answer)
+    #end
   end
 end
