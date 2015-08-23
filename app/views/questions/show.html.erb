@@ -112,7 +112,7 @@
       <div id="commentlist" class="page-content">
         <div class="boxedtitle page-title"><h2>Answers ( <span class="color"><%= @question.answers.size %></span> )</h2></div>
         <ol class="commentlist clearfix">
-        <% @question.answers.order('updated_at desc').each do |answer| %>
+        <% @question.answers.order('created_at desc').each do |answer| %>
           <li class="comment">
             <div class="comment-body clearfix">
               <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
@@ -147,9 +147,7 @@
                 <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
                 <% else %>
                     <% if (@question.user_id.eql? session[:user_id]) && (@question.has_best_answer.eql? 0) %>
-                        <%= form_tag("/answers/selectAsBestAnswer/#{answer.id}") do -%>
-                            <input type="submit" value="Select as Best Answer" class="button small color">
-                        <% end -%>
+                        <%= button_to "Select as Best Answer" , select_as_best_answer_path(question_id: @question.id, answer_id: answer.id), class: "button small color" %>
                     <% end %>
                 <% end %>
               </div>

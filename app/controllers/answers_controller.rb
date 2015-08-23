@@ -21,6 +21,12 @@ class AnswersController < ApplicationController
   def edit
   end
 
+  def selectAsBestAnswer
+    Answer.update(params[:answer_id], answer_status_id: 3)
+    Question.update(params[:question_id], has_best_answer: 1)
+    redirect_to controller: 'questions', action: 'show', id: params[:question_id]
+  end
+
   # POST /answers
   # POST /answers.json
   def create

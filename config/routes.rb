@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   post 'questions/:id/answers' => 'answers#create', as: :answer_a_question
 
+  post '/questions/:question_id/answers/:answer_id/selectAsBestAnswer' => 'answers#selectAsBestAnswer', as: :select_as_best_answer
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
