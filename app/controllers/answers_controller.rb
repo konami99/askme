@@ -21,9 +21,9 @@ class AnswersController < ApplicationController
   def edit
   end
 
-  def selectAsBestAnswer
+  def select_as_best_answer
     Answer.update(params[:answer_id], answer_status_id: 3)
-    Question.update(params[:question_id], has_best_answer: 1)
+    Question.update(params[:question_id], question_status_id: 2, has_best_answer: 1)
     redirect_to controller: 'questions', action: 'show', id: params[:question_id]
   end
 
