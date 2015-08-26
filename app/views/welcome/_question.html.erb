@@ -11,7 +11,11 @@ _question
         <div class="clearfix"></div>
         <p class="question-desc"><%= question.content %></p>
         <div class="question-details">
-          <span class="question-answered question-answered-done"><i class="icon-ok"></i><%= question.question_status.name %></span>
+          <% if question.question_status_id.eql? 1 %>
+              <span class="question-answered question-answered"><i class="icon-ok"></i><%= question.question_status.name %></span>
+          <% else %>
+              <span class="question-answered question-answered-done"><i class="icon-ok"></i><%= question.question_status.name %></span>
+          <% end %>
           <span class="question-favorite"><i class="icon-star"></i>5</span>
         </div>
         <span class="question-date"><i class="icon-time"></i><%= question.created_at.strftime("%d/%m/%Y") %></span>
