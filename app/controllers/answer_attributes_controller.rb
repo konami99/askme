@@ -32,7 +32,7 @@ class AnswerAttributesController < ApplicationController
     disliked_answer = DislikedAnswer.find_by user_id: session[:user_id], answer_id: answer.id
     if disliked_answer.nil?
       answer_attribute = answer.answer_attribute
-      answer_attribute.like -= 1
+      answer_attribute.like = (answer_attribute.like.eql? nil)? -1: (answer_attribute.like-1)
       answer_attribute.save!
       DislikedAnswer.create(user_id: session[:user_id], answer_id: answer.id)
       respond_to do |format|
