@@ -135,7 +135,7 @@
                         -->
                     </ul>
                   </div>
-                  <span id="answer_<%= answer.id %>_vote_count" class="question-vote-result">+<%= answer.answer_attribute.like %></span>
+                  <span id="answer_<%= answer.id %>_vote_count" class="question-vote-result"><%= answer.answer_attribute.like %></span>
                   <div class="comment-meta">
                     <div class="date"><i class="icon-time"></i><%= answer.updated_at.strftime('%A %e, %Y at %H:%M') %></div>
                   </div>
