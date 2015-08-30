@@ -127,7 +127,7 @@
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true, class: "like_form") do -%>
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like", data: { type: :json } %></li>
                       <% end -%>
-                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true) do -%>
+                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true, class: "dislike_form") do -%>
                           <li><%= link_to "", "#", class: "question-vote-down", title: "Dislike" %></li>
                       <% end -%>
                       <!--
@@ -231,6 +231,15 @@
         });
 
         $(".like_form").on("ajax:success", function(event, data){
+            if(data.status == 1){
+                $('#answer_' + data.answer_id + '_vote_count').text(data.message);
+            }
+            else if(data.status == 0){
+                alert(data.message);
+            }
+        });
+
+        $(".dislike_form").on("ajax:success", function(event, data){
             if(data.status == 1){
                 $('#answer_' + data.answer_id + '_vote_count').text(data.message);
             }

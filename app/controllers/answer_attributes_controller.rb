@@ -41,6 +41,13 @@ class AnswerAttributesController < ApplicationController
           @updatedCount = answer_attribute.like
         }
       end
+    else
+      respond_to do |format|
+        format.json {
+          @result = 0
+
+        }
+      end
     end
   end
 end
