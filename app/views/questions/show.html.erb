@@ -125,7 +125,7 @@
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :put, remote: true, class: "like_form") do -%>
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like", data: { type: :json } %></li>
                       <% end -%>
-                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true) do -%>
+                      <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true, class: "dislike_form") do -%>
                           <li><%= link_to "", "#", class: "question-vote-down", title: "Dislike" %></li>
                       <% end -%>
                       <!--
@@ -133,7 +133,7 @@
                         -->
                     </ul>
                   </div>
-                  <span id="answer_<%= answer.id %>_vote_count" class="question-vote-result">+<%= answer.answer_attribute.like %></span>
+                  <span id="answer_<%= answer.id %>_vote_count" class="question-vote-result"><%= answer.answer_attribute.like %></span>
                   <div class="comment-meta">
                     <div class="date"><i class="icon-time"></i><%= answer.updated_at.strftime('%A %e, %Y at %H:%M') %></div>
                   </div>
@@ -229,6 +229,15 @@
         });
 
         $(".like_form").on("ajax:success", function(event, data){
+            if(data.status == 1){
+                $('#answer_' + data.answer_id + '_vote_count').text(data.message);
+            }
+            else if(data.status == 0){
+                alert(data.message);
+            }
+        });
+
+        $(".dislike_form").on("ajax:success", function(event, data){
             if(data.status == 1){
                 $('#answer_' + data.answer_id + '_vote_count').text(data.message);
             }
