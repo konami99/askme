@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @liked_question.question %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @liked_question.user %>
+</p>
+
+<%= link_to 'Edit', edit_liked_question_path(@liked_question) %> |
+<%= link_to 'Back', liked_questions_path %>

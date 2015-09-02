@@ -1,0 +1,27 @@
+<h1>Listing liked_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @liked_questions.each do |liked_question| %>
+      <tr>
+        <td><%= liked_question.question %></td>
+        <td><%= liked_question.user %></td>
+        <td><%= link_to 'Show', liked_question %></td>
+        <td><%= link_to 'Edit', edit_liked_question_path(liked_question) %></td>
+        <td><%= link_to 'Destroy', liked_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Liked question', new_liked_question_path %>

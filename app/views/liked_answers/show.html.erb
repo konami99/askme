@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @liked_answer.answer %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @liked_answer.user %>
+</p>
+
+<%= link_to 'Edit', edit_liked_answer_path(@liked_answer) %> |
+<%= link_to 'Back', liked_answers_path %>
