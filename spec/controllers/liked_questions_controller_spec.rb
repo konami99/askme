@@ -68,10 +68,19 @@ RSpec.describe LikedQuestionsController, :type => :controller do
   end
 
   describe "POST create" do
+    before :each do
+      @user = create(:user)
+      session[:user_id] = @user.id
+      session[:username] = @user.username
+    end
+
     describe "with valid params" do
       it "creates a new LikedQuestion" do
+
+        question = create(:question)
+
         expect {
-          post :create, {:liked_question => valid_attributes}, valid_session
+          post :create, user_id: @user.id, question_id: question.id
         }.to change(LikedQuestion, :count).by(1)
       end
 
@@ -79,11 +88,6 @@ RSpec.describe LikedQuestionsController, :type => :controller do
         post :create, {:liked_question => valid_attributes}, valid_session
         expect(assigns(:liked_question)).to be_a(LikedQuestion)
         expect(assigns(:liked_question)).to be_persisted
-      end
-
-      it "redirects to the created liked_question" do
-        post :create, {:liked_question => valid_attributes}, valid_session
-        expect(response).to redirect_to(LikedQuestion.last)
       end
     end
 

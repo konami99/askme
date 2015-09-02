@@ -24,11 +24,11 @@ class LikedQuestionsController < ApplicationController
   # POST /liked_questions
   # POST /liked_questions.json
   def create
-    @liked_question = LikedQuestion.new(liked_question_params)
-
+    @liked_question = LikedQuestion.new(question_id: params[:question_id], user_id: params[:user_id])
+    question = Question.find(params[:question_id])
     respond_to do |format|
       if @liked_question.save
-        format.html { redirect_to @liked_question, notice: 'Liked question was successfully created.' }
+        format.html { redirect_to question_url(question) }
         format.json { render :show, status: :created, location: @liked_question }
       else
         format.html { render :new }
@@ -68,7 +68,7 @@ class LikedQuestionsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def liked_question_params
-      params.require(:liked_question).permit(:question_id, :user_id)
-    end
+    #def liked_question_params
+    #  params.require(:liked_question).permit(:question_id, :user_id)
+    #end
 end

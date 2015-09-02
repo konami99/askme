@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :liked_question do
-    question nil
-    user nil
+
   end
 end
