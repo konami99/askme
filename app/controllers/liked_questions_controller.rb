@@ -1,5 +1,5 @@
 class LikedQuestionsController < ApplicationController
-  before_action :set_liked_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_liked_question, only: [:show, :edit, :update]
 
   # GET /liked_questions
   # GET /liked_questions.json
@@ -54,9 +54,10 @@ class LikedQuestionsController < ApplicationController
   # DELETE /liked_questions/1
   # DELETE /liked_questions/1.json
   def destroy
-    @liked_question.destroy
+    LikedQuestion.delete_all(["question_id=? AND user_id=?", params[:question_id], session[:user_id]])
+    question = Question.find(params[:question_id])
     respond_to do |format|
-      format.html { redirect_to liked_questions_url, notice: 'Liked question was successfully destroyed.' }
+      format.html { redirect_to question_url(question) }
       format.json { head :no_content }
     end
   end
