@@ -36,12 +36,12 @@
           <span class="single-question-vote-result">+22</span>
           <ul class="single-question-vote">
             <li>
-              <%= link_to liked_question_path(question_id: 4), remote: true, method: :delete, data: { type: :json }, class: "single-question-vote-down", title: "Dislike" do %>
+              <%= link_to liked_question_path, remote: true, method: :delete, data: { type: :json }, class: "single-question-vote-down", title: "Dislike" do %>
                   <i class="icon-thumbs-down"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to liked_questions_path(question_id: 4), remote: true, method: :post, data: { type: :json }, class: "single-question-vote-up", title: "Like" do %>
+              <%= link_to liked_questions_path(question_id: @question.id), remote: true, method: :post, data: { type: :json }, class: "single-question-vote-up", title: "Like" do %>
                   <i class="icon-thumbs-up"></i>
               <% end %>
             </li>

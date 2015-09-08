@@ -24,17 +24,24 @@ class LikedQuestionsController < ApplicationController
   # POST /liked_questions
   # POST /liked_questions.json
   def create
-    @liked_question = LikedQuestion.new(question_id: params[:question_id], user_id: session[:user_id])
-    question = Question.find(params[:question_id])
-    respond_to do |format|
-      if @liked_question.save
-        format.html { redirect_to question_url(question) }
-        format.json { render :show, status: :created, location: @liked_question }
-      else
-        format.html { render :new }
-        format.json { render json: @liked_question.errors, status: :unprocessable_entity }
+    if LikedQuestion.where({question_id: params[:question_id], user_id: session[:user_id]}).empty?
+      @liked_question = LikedQuestion.new(question_id: params[:question_id], user_id: session[:user_id])
+      question = Question.find(params[:question_id])
+      respond_to do |format|
+        if @liked_question.save
+          format.html { redirect_to question_url(question) }
+          format.json { render :show, status: :created, location: @liked_question }
+        else
+          format.html { render :new }
+          format.json { render json: @liked_question.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.json { head :no_content }
       end
     end
+
   end
 
   # PATCH/PUT /liked_questions/1
@@ -54,8 +61,8 @@ class LikedQuestionsController < ApplicationController
   # DELETE /liked_questions/1
   # DELETE /liked_questions/1.json
   def destroy
-    LikedQuestion.delete_all(["question_id=? AND user_id=?", params[:question_id], session[:user_id]])
-    question = Question.find(params[:question_id])
+    LikedQuestion.delete_all(["question_id=? AND user_id=?", params[:id], session[:user_id]])
+    question = Question.find(params[:id])
     respond_to do |format|
       format.html { redirect_to question_url(question) }
       format.json { head :no_content }
