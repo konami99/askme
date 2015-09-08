@@ -35,10 +35,13 @@
           <span class="question-comment"><a href="#"><i class="icon-comment"></i><%= pluralize(@question.answers.size(), 'Answer') %></a></span>
           <span class="single-question-vote-result">+22</span>
           <ul class="single-question-vote">
-            <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
             <li>
-              <a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a>
-              <%= link_to liked_questions_path(question_id: 4), remote: true, method: :post, data: { type: :json } do %>
+              <%= link_to liked_questions_path(question_id: 4), remote: true, method: :post, data: { type: :json }, class: "single-question-vote-down", title: "Dislike" do %>
+                  <i class="icon-thumbs-down"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to liked_questions_path(question_id: 4), remote: true, method: :post, data: { type: :json }, class: "single-question-vote-up", title: "Like" do %>
                   <i class="icon-thumbs-up"></i>
               <% end %>
             </li>
