@@ -24,7 +24,7 @@ class LikedQuestionsController < ApplicationController
   # POST /liked_questions
   # POST /liked_questions.json
   def create
-    @liked_question = LikedQuestion.new(question_id: params[:question_id], user_id: params[:user_id])
+    @liked_question = LikedQuestion.new(question_id: params[:question_id], user_id: session[:user_id])
     question = Question.find(params[:question_id])
     respond_to do |format|
       if @liked_question.save

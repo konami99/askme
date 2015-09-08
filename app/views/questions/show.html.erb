@@ -38,7 +38,7 @@
             <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
             <li>
               <a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a>
-              <%= link_to liked_questions_path(user_id: 21, question_id: 4), remote: true, method: :post, data: { type: :json } do %>
+              <%= link_to liked_questions_path(question_id: 4), remote: true, method: :post, data: { type: :json } do %>
                   <i class="icon-thumbs-up"></i>
               <% end %>
             </li>
