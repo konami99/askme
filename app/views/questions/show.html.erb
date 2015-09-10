@@ -253,5 +253,23 @@
                 alert(data.message);
             }
         });
+
+        $(".single-question-vote-up").on("ajax:success", function(event, data){
+            if(data.status == 1){
+                //$('#answer_' + data.answer_id + '_vote_count').text(data.message);
+            }
+            else if(data.status == 0){
+                alert(data.message);
+            }
+        });
+
+        $(".single-question-vote-down").on("ajax:success", function(event, data){
+            if(data.status == 1){
+                //$('#answer_' + data.answer_id + '_vote_count').text(data.message);
+            }
+            else if(data.status == 0){
+                alert(data.message);
+            }
+        });
     });
 </script>
