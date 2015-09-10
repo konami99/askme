@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :question_attributes
+
   resources :liked_questions
 
   resources :liked_answers

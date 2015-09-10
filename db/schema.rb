@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830195930) do
+ActiveRecord::Schema.define(version: 20150910130514) do
 
   create_table "answer_attributes", force: true do |t|
     t.datetime "created_at"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20150830195930) do
 
   add_index "liked_questions", ["question_id"], name: "index_liked_questions_on_question_id", using: :btree
   add_index "liked_questions", ["user_id"], name: "index_liked_questions_on_user_id", using: :btree
+
+  create_table "question_attributes", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "like"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "question_attributes", ["question_id"], name: "index_question_attributes_on_question_id", using: :btree
 
   create_table "question_statuses", force: true do |t|
     t.string   "name",       null: false
