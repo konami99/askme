@@ -7,4 +7,8 @@ class Question < ActiveRecord::Base
   def self.latest
     Question.order(:updated_at).last
   end
+
+  after_create do |question|
+    QuestionAttribute.create(question: question)
+  end
 end
