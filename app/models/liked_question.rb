@@ -7,10 +7,10 @@ class LikedQuestion < ActiveRecord::Base
 
   private
     def increase_question_attribute_like
-      question.question_attribute.like += 1
+      question.question_attribute.like = (question.question_attribute.like.nil?)? 1 : question.question_attribute.like += 1
     end
 
     def decrease_question_attribute_like
-      question.question_attribute.like -= 1
+      question.question_attribute.like = (question.question_attribute.like.nil?)? 1 : question.question_attribute.like -= 1
     end
 end
