@@ -134,7 +134,7 @@
                       <li><%= link_to "", "#", class: "question-vote-up", title: "Like", data: { type: :json } %></li>
                       <% end -%>
                       <%= form_tag("/answers/#{answer.id}/answer_attributes/#{answer.answer_attribute.id}", method: :delete, remote: true, class: "dislike_form") do -%>
-                          <li><%= link_to "", "#", class: "question-vote-down", title: "Dislike" %></li>
+                          <li><%= link_to "", "#", class: "question-vote-down", title: "Dislike", data: { type: :json } %></li>
                       <% end -%>
                       <!--
                       <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
